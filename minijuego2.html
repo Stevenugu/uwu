@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title> Minijuego 2 - Usa los Pronombres</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", sans-serif;
+      background-color: #f0fff5;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2b7a0b;
+    }
+
+    .question {
+      background-color: #ffffff;
+      border: 2px solid #2b7a0b;
+      border-radius: 10px;
+      width: 60%;
+      margin: 15px auto;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 5px;
+      border-radius: 6px;
+    }
+
+    #checkAnswers {
+      background: #2b7a0b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    #checkAnswers:hover {
+      background: #3cb43c;
+    }
+
+    #result img {
+      width: 120px;
+    }
+
+    #backBtn {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: white;
+      background: #1c6408;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    #backBtn:hover {
+      background: #3cb43c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Minijuego 2: Usa los Pronombres</h1>
+  <p>Selecciona el pronombre correcto para completar cada oración:</p>
+
+  <div class="question">1. It’s ______ phone.  
+    <select>
+      <option value="">--Selecciona--</option>
+      <option value="her">her</option>
+      <option value="his">his</option>
+      <option value="their">their</option>
+    </select>
+  </div>
+
+  <div class="question">2. ______ are my best friends.  
+    <select>
+      <option value="">--Selecciona--</option>
+      <option value="They">They</option>
+      <option value="We">We</option>
+      <option value="He">He</option>
+    </select>
+  </div>
+
+  <div class="question">3. ______ am very happy today.  
+    <select>
+      <option value="">--Selecciona--</option>
+      <option value="I">I</option>
+      <option value="You">You</option>
+      <option value="She">She</option>
+    </select>
+  </div>
+
+  <div class="question">4. ______ is reading a book.  
+    <select>
+      <option value="">--Selecciona--</option>
+      <option value="She">She</option>
+      <option value="We">We</option>
+      <option value="They">They</option>
+    </select>
+  </div>
+
+  <div class="question">5. ______ love pizza!  
+    <select>
+      <option value="">--Selecciona--</option>
+      <option value="We">We</option>
+      <option value="It">It</option>
+      <option value="He">He</option>
+    </select>
+  </div>
+
+  <button id="checkAnswers">Verificar respuestas</button>
+
+  <div id="result"></div>
+
+  <a id="backBtn" href="minijuego1.html">⬅️ Volver al Minijuego 1</a>
+
+  <script>
+    const selects = document.querySelectorAll('select');
+    const result = document.getElementById('result');
+    const answers = ["her", "They", "I", "She", "We"];
+
+    document.getElementById('checkAnswers').addEventListener('click', () => {
+      let score = 0;
+      selects.forEach((sel, i) => {
+        if (sel.value === answers[i]) {
+          score++;
+          sel.style.backgroundColor = "#b8ffb8";
+        } else {
+          sel.style.backgroundColor = "#ffb3b3";
+        }
+      });
+
+      result.innerHTML = '';
+      const img = document.createElement('img');
+      if (score === answers.length) {
+        img.src = 'rana-feliz.jpg';
+        result.innerHTML = `<h3>¡Excelente! Todas correctas </h3>`;
+      } else {
+        img.src = 'rana-triste.jpg';
+        result.innerHTML = `<h3> :,( Obtuviste ${score}/${answers.length}. ¡Intenta otra vez! </h3>`;
+      }
+      result.appendChild(img);
+    });
+  </script>
+</body>
+</html>

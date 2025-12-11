@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niños Especiales</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+      background-color: #9de4ef;
+      color: #333;
+    }
+    header {
+      background-color: #3bebcb;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.3em; }
+    .contenido-principal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 50px;
+    }
+    .temas {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 500px;
+    }
+    .tema {
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, background-color 0.3s;
+      cursor: pointer;
+    }
+    .tema:hover { transform: scale(1.05); background-color: #d1f2eb; }
+    .tema h3 { color: #117a65; font-size: 1.3em; margin-bottom: 10px; }
+    .tema img { width: 80px; height: 80px; margin-bottom: 10px; }
+    .imagen-derecha {
+      flex: 1;
+      text-align: center;
+    }
+    .imagen-derecha img {
+      width: 80%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    footer {
+      background-color: #1abc9c;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+    @media (max-width: 800px) {
+      .contenido-principal { flex-direction: column; text-align: center; }
+      .temas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>⭐ Niños Especiales ⭐</h1>
+    <p>Esta es una página hecha con el objetivo de que niños pequeños entre 8-10 años con discapacidad auditiva aprendan inglés básico de forma divertida y educativa.</p>
+  </header>
+
+  <section class="contenido-principal">
+    <div class="temas">
+      <div class="tema" onclick="location.href='modales.html'">
+        <img src="modales.jpg" alt="modales">
+        <h3>Modales</h3>
+        <p>Aprende palabras amables como “please” y “thank you”.</p>
+      </div>
+
+      <div class="tema" onclick="location.href='colores.html'">
+        <img src="color.jpg" alt="color">
+        <h3>Colores</h3>
+        <p>Descubre los nombres de los colores en inglés.</p>
+      </div>
+
+      <div class="tema" onclick="location.href='vocabulario.html'">
+        <img src="vocabulario.jpg" alt="vocabulario">
+        <h3>Vocabulario</h3>
+        <p>Aprende palabras básicas con imágenes y señas.</p>
+      </div>
+
+      <div class="tema" onclick="location.href='numeros.html'">
+        <img src="numero.jpg" alt="numero">
+        <h3>Números</h3>
+        <p>Cuenta del uno al diez con inglés y señas.</p>
+      </div>
+
+      <div class="tema" onclick="location.href='abecedario.html'">
+        <img src="abc.jpg" alt="abc">
+        <h3>Abecedario</h3>
+        <p>Conoce las letras y su seña en inglés.</p>
+      </div>
+
+      <div class="tema" onclick="location.href='senas.html'">
+        <img src="manos.jpg" alt="manos">
+        <h3>Lenguaje de Señas</h3>
+        <p>Aprende a comunicarte con las manos 🤲</p>
+      </div>
+    </div>
+
+    <div class="imagen-derecha">
+      <img src="rana2.jpg" alt="rana2">
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Aprendamos Inglés con Señas | Proyecto educativo inclusivo</p>
+  </footer>
+
+</body>
+</html>

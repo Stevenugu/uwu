@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="ranna.jpeg">
+  <title>Abecedario en Inglés</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+      background-color: #e3f9f6;
+      margin: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #3bebcb;
+      color: white;
+      padding: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: white;
+      color: black;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 36px;
+    }
+    .card p {
+      margin: 5px 0 0;
+      font-size: 18px;
+      color: #555;
+    }
+    .sign-section {
+      background-color: #f0fdfb;
+      padding: 40px 20px;
+    }
+    .sign-section h2 {
+      color: #1abc9c;
+      margin-bottom: 20px;
+    }
+    .signs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    .sign {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      width: 120px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sign:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+    .sign img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .sign p {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    .video-container {
+      margin-top: 40px;
+    }
+    .video-container h3 {
+      color: #1abc9c;
+      margin-bottom: 10px;
+    }
+    .video-wrapper {
+      width: 480px;         /* ancho grande */
+      max-width: 90vw;      /* responsivo en móviles */
+      aspect-ratio: 1 / 1;  /* video cuadrado */
+      margin: 0 auto;
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      border: none;
+    }
+    a.volver {
+      display: inline-block;
+      margin: 20px;
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Abecedario en Inglés</h1>
+  <p>Aprende las letras del abecedario en inglés y en lengua de señas. Al darle click a una tarjeta te saldrá un color distinto.</p>
+</header>
+
+<section class="cards" id="cards"></section>
+
+<section class="sign-section">
+  <h2>Abecedario en Lengua de Señas</h2>
+  <div class="signs" id="signs"></div>
+
+  <!-- Video cuadrado grande agregado al final -->
+  <div class="video-container">
+    <h3>Video de repaso del abecedario en señas</h3>
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/vXSSgzXJy1Q" 
+        title="Video de Abecedario en Señas" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<a href="index.html" class="volver">← Volver al inicio</a>
+
+<script>
+  const abecedario = [
+    { letra: "A", pronunciacion: "ei", seña: "A.jpg" },
+    { letra: "B", pronunciacion: "bi", seña: "B.jpg" },
+    { letra: "C", pronunciacion: "si", seña: "C.jpg" },
+    { letra: "D", pronunciacion: "di", seña: "D.jpg" },
+    { letra: "E", pronunciacion: "i", seña: "E.jpg" },
+    { letra: "F", pronunciacion: "ef", seña: "F.jpg" },
+    { letra: "G", pronunciacion: "yi", seña: "G.jpg" },
+    { letra: "H", pronunciacion: "eich", seña: "H.jpg" },
+    { letra: "I", pronunciacion: "ai", seña: "I.jpg" },
+    { letra: "J", pronunciacion: "yei", seña: "J.jpg" },
+    { letra: "K", pronunciacion: "kei", seña: "K.jpg" },
+    { letra: "L", pronunciacion: "el", seña: "L.jpg" },
+    { letra: "M", pronunciacion: "em", seña: "M.jpg" },
+    { letra: "N", pronunciacion: "en", seña: "N.jpg" },
+    { letra: "O", pronunciacion: "ou", seña: "O.jpg" },
+    { letra: "P", pronunciacion: "pi", seña: "P.jpg" },
+    { letra: "Q", pronunciacion: "kiu", seña: "Q.jpg" },
+    { letra: "R", pronunciacion: "ar", seña: "R.jpg" },
+    { letra: "S", pronunciacion: "es", seña: "S.jpg" },
+    { letra: "T", pronunciacion: "ti", seña: "T.jpg" },
+    { letra: "U", pronunciacion: "iu", seña: "U.jpg" },
+    { letra: "V", pronunciacion: "vi", seña: "V.jpg" },
+    { letra: "W", pronunciacion: "dábl iu", seña: "W.jpg" },
+    { letra: "X", pronunciacion: "eks", seña: "X.jpg" },
+    { letra: "Y", pronunciacion: "uai", seña: "Y.jpg" },
+    { letra: "Z", pronunciacion: "zed / zi", seña: "Z.jpg" }
+  ];
+
+  const contenedor = document.getElementById("cards");
+  const contenedorSeñas = document.getElementById("signs");
+
+  function colorAleatorio() {
+    const r = Math.floor(Math.random() * 156 + 100);
+    const g = Math.floor(Math.random() * 156 + 100);
+    const b = Math.floor(Math.random() * 156 + 100);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  abecedario.forEach(({ letra, pronunciacion }) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `<h2>${letra}</h2><p>${pronunciacion}</p>`;
+    card.addEventListener("click", () => {
+      card.style.backgroundColor = colorAleatorio();
+    });
+    contenedor.appendChild(card);
+  });
+
+  abecedario.forEach(({ letra, seña }) => {
+    const sign = document.createElement("div");
+    sign.classList.add("sign");
+    sign.innerHTML = `<img src="${seña}" alt="Seña de la letra ${letra}"><p>${letra}</p>`;
+    contenedorSeñas.appendChild(sign);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="ranna.jpeg">
+  <title>Lengua de señas</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+      background-color: #e3f9f6;
+      margin: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #3bebcb;
+      color: white;
+      padding: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      background-color: #b2f7e6;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .card p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    a.volver {
+      display: inline-block;
+      margin: 20px;
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    /* Estilo del video */
+    .video-section {
+      padding: 30px;
+      background-color: #b2f7e6;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-section h2 {
+      color: #06695c;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lengua de señas</h1>
+  <p>Aprende las letras del abecedario con sus señas correspondientes 💙</p>
+</header>
+
+<section class="cards">
+  <div class="card"><img src="A.jpg" alt="Seña de A"><p>A</p></div>
+  <div class="card"><img src="B.jpg" alt="Seña de B"><p>B</p></div>
+  <div class="card"><img src="C.jpg" alt="Seña de C"><p>C</p></div>
+  <div class="card"><img src="D.jpg" alt="Seña de D"><p>D</p></div>
+  <div class="card"><img src="E.jpg" alt="Seña de E"><p>E</p></div>
+  <div class="card"><img src="F.jpg" alt="Seña de F"><p>F</p></div>
+  <div class="card"><img src="G.jpg" alt="Seña de G"><p>G</p></div>
+  <div class="card"><img src="H.jpg" alt="Seña de H"><p>H</p></div>
+  <div class="card"><img src="I.jpg" alt="Seña de I"><p>I</p></div>
+  <div class="card"><img src="J.jpg" alt="Seña de J"><p>J</p></div>
+  <div class="card"><img src="K.jpg" alt="Seña de K"><p>K</p></div>
+  <div class="card"><img src="L.jpg" alt="Seña de L"><p>L</p></div>
+  <div class="card"><img src="M.jpg" alt="Seña de M"><p>M</p></div>
+  <div class="card"><img src="N.jpg" alt="Seña de N"><p>N</p></div>
+  <div class="card"><img src="O.jpg" alt="Seña de O"><p>O</p></div>
+  <div class="card"><img src="P.jpg" alt="Seña de P"><p>P</p></div>
+  <div class="card"><img src="Q.jpg" alt="Seña de Q"><p>Q</p></div>
+  <div class="card"><img src="R.jpg" alt="Seña de R"><p>R</p></div>
+  <div class="card"><img src="S.jpg" alt="Seña de S"><p>S</p></div>
+  <div class="card"><img src="T.jpg" alt="Seña de T"><p>T</p></div>
+  <div class="card"><img src="U.jpg" alt="Seña de U"><p>U</p></div>
+  <div class="card"><img src="V.jpg" alt="Seña de V"><p>V</p></div>
+  <div class="card"><img src="W.jpg" alt="Seña de W"><p>W</p></div>
+  <div class="card"><img src="X.jpg" alt="Seña de X"><p>X</p></div>
+  <div class="card"><img src="Y.jpg" alt="Seña de Y"><p>Y</p></div>
+  <div class="card"><img src="Z.jpg" alt="Seña de Z"><p>Z</p></div>
+</section>
+
+<!-- Video de YouTube al final -->
+<section class="video-section">
+  <h2>Video de repaso del abecedario en lengua de señas</h2>
+  <iframe src="https://www.youtube.com/embed/KQG8F8TuBfA" allowfullscreen></iframe>
+</section>
+
+<a href="index.html" class="volver">← Volver al inicio</a>
+
+</body>
+</html>

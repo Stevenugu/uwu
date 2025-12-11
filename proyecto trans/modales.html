@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modales</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+      background-color: #e3f9f6;
+      margin: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #3bebcb;
+      color: white;
+      padding: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+    }
+    a.volver {
+      display: inline-block;
+      margin: 20px;
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Modales en Inglés y Señas</h1>
+  <p>Aprende palabras amables como “Please”, “Thank you” y “Sorry”.</p>
+</header>
+
+<section class="cards">
+  <div class="card">
+    <img src="porfa.jpg" alt="porfa">
+    <p><b>Please</b><br>Por favor<br>
+  </div>
+  <div class="card">
+    <img src="gracias.jpg" alt="gracias">
+    <p><b>Thank You</b><br>Gracias<br>
+  </div>
+  <div class="card">
+    <img src="sorry.jpg" alt="Sorry">
+    <p><b>Sorry</b><br>Lo siento<br>
+  </div>
+  <div class="card">
+    <img src="hola.jpg" alt="hola">
+    <p><b>Hello</b><br>Hola<br>
+  </div>
+</section>
+
+<a href="index.html" class="volver">← Volver al inicio</a>
+
+</body>
+</html>

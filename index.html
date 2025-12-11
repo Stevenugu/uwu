@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Niños Especiales- Aprende ingles facil</title> 
+
+  <link rel="icon" type="image/jpeg" href="ranna.jpeg"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Edu+SA+Hand:wght@400..700&family=Fjalla+One&family=Fugaz+One&family=Michroma&display=swap" rel="stylesheet"> 
+  
+  <style> 
+    body { 
+      margin: 30px; 
+      font-family: 'Comic Sans MS', Arial, sans-serif; 
+      background-color: #68a3e2; 
+      color: #7cebff; 
+    } 
+    header { 
+      background-color: #58b9ff; 
+      color: white; 
+      padding: 40px 20px; 
+      text-align: center; 
+    } 
+    h2 { 
+      margin: 12px; 
+      font-family: Fugaz One; 
+      font-size: 70px; 
+    } 
+    h3 { 
+      margin: 12px; 
+      font-family: Edu SA Hand; 
+      font-size: 70px; 
+    } 
+    p { 
+      font-size: 1.3em; 
+      font-family: Michroma; 
+    } 
+
+    .contenido-principal { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      flex-wrap: wrap; 
+      padding: 50px; 
+    } 
+    .temas { 
+      flex: 1; 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 25px; 
+      max-width: 500px; 
+    } 
+    .tema { 
+      background-color: #ffffff; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 10px rgba(113, 160, 227, 0.1); 
+      padding: 25px; 
+      text-align: center; 
+      transition: transform 0.3s, background-color 0.3s; 
+      cursor: pointer; 
+    } 
+    .tema:hover { transform: scale(1.05); background-color: #6ab3f4; } 
+    .tema h3 { color: #d3fff6; font-size: 1.3em; margin-bottom: 10px; } 
+    .tema img { width: 80px; height: 80px; margin-bottom: 10px; } 
+    .imagen-derecha { 
+      flex: 1; 
+      text-align: center; 
+    } 
+    .imagen-derecha img { 
+      width: 80%; 
+      max-width: 450px; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+    } 
+
+    /* ⭐ CONTENEDOR PARA CENTRAR BOTÓN */
+    .contenedor-boton {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    /* 🔴 BOTÓN EXAMEN */
+    .btn-examen {
+      background-color: #ff6b6b;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      font-size: 1.5em;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: 'Comic Sans MS';
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+
+    .btn-examen:hover {
+      background-color: #ff4f4f;
+      transform: scale(1.05);
+    }
+
+    footer { 
+      background-color: #cceeff; 
+      color: white; 
+      text-align: center; 
+      padding: 10px; 
+      margin-top: 40px; 
+    } 
+
+    @media (max-width: 800px) { 
+      .contenido-principal { flex-direction: column; text-align: center; } 
+      .temas { grid-template-columns: 1fr; } 
+    } 
+  </style> 
+</head> 
+
+<body> 
+
+  <header> 
+    <h1>⭐ Niños Especiales ⭐</h1> 
+    <p>Esta es una página hecha con el objetivo de que niños pequeños entre 8-10 años con discapacidad auditiva aprendan inglés básico de forma divertida y educativa.</p> 
+  </header> 
+
+  <section class="contenido-principal"> 
+    <div class="temas"> 
+      <div class="tema" onclick="location.href='modales.html'"> 
+        <img src="modales.jpg" alt="modales"> 
+        <h3>Modales</h3> 
+        <p>Aprende palabras amables como “please” y “thank you”.</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='colores.html'"> 
+        <img src="colores.jpg" alt="color"> 
+        <h3>Colores</h3> 
+        <p>Descubre los nombres de los colores en inglés.</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='vocabulario.html'"> 
+        <img src="vocabulario.jpg" alt="vocabulario"> 
+        <h3>Vocabulario</h3> 
+        <p>Aprende palabras básicas con imágenes y señas.</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='numeros.html'"> 
+        <img src="numeros.jpg" alt="numero"> 
+        <h3>Números</h3> 
+        <p>Cuenta del uno al diez con inglés y señas.</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='abecedario.html'"> 
+        <img src="abecedario.jpg" alt="abc"> 
+        <h3>Abecedario</h3> 
+        <p>Conoce las letras y su seña en inglés.</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='senas.html'"> 
+        <img src="lengua.jpg" alt="manos"> 
+        <h3>Lenguaje de Señas</h3> 
+        <p>Aprende a comunicarte con las manos </p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='pronombres.html'"> 
+        <img src="personas3.jpg" alt="personas3"> 
+        <h3>Pronombres</h3> 
+        <p>Aprende los pronombres</p> 
+      </div> 
+
+      <div class="tema" onclick="location.href='verbos.html'"> 
+        <img src="verb.jpg" alt="verb"> 
+        <h3>Verbos</h3> 
+        <p>Aprende verbos básicos en inglés con imágenes.</p> 
+      </div> 
+    </div> 
+
+    <div class="imagen-derecha"> 
+      <img src="ranna.jpeg" alt="rana2">
+
+      <!-- 🔴 BOTÓN EXAMEN CENTRADO ABAJO DE LA IMAGEN -->
+      <div class="contenedor-boton">
+        <button class="btn-examen" onclick="location.href='examen.html'">EXAMEN</button>
+      </div>
+    </div> 
+  </section> 
+
+  <footer> 
+    <p>© 2025 Aprendamos Inglés con Señas | Proyecto educativo inclusivo</p> 
+  </footer> 
+
+</body> 
+</html>

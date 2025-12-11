@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Memorama de Modales</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        transition: background 1s;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    #info {
+        display: flex;
+        gap: 20px;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    #gameBoard {
+        width: 800px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 120px;
+        background: white;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #1e90ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 18px;
+        transition: background 0.3s;
+    }
+
+    .front {
+        position: absolute;
+        inset: 0;
+        background: #1e90ff;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        flex-direction: column;
+    }
+
+    .front .langTag {
+        font-size: 35px;
+        margin-bottom: 4px;
+        opacity: 0.85;
+    }
+
+    .back {
+        position: absolute;
+        inset: 0;
+        background: white;
+        color: black;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .flipped .front { display: none; }
+    .flipped .back { display: flex; }
+
+    #restartBtn {
+        padding: 10px 15px;
+        background: #1e90ff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    /* ⭐ BOTÓN TURQUESA “IR A INICIO” */
+    #homeBtn {
+        padding: 12px 25px;
+        background: #1abc9c;  /* turquesa */
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    #homeBtn:hover {
+        background: #17a085;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+<h1>Memorama de Modales</h1>
+
+<div id="info">
+    <div>⏳ Tiempo: <span id="timer">10:00</span></div>
+    <div>⭐ Score: <span id="score">0</span></div>
+    <div>🟦 Parejas: <span id="matches">0</span></div>
+</div>
+
+<button id="restartBtn">Reiniciar</button>
+
+<!-- ⭐ BOTÓN NUEVO AQUÍ -->
+<button id="homeBtn" onclick="location.href='index.html'">Ir a inicio</button>
+
+<div id="gameBoard"></div>
+
+<script>
+
+const pairs = [
+    { en: "please", es: "por favor" },
+    { en: "thank you", es: "gracias" },
+    { en: "sorry", es: "lo siento" },
+    { en: "hello", es: "hola" },
+    { en: "goodbye", es: "adiós" },
+    { en: "excuse me", es: "disculpe" },
+    { en: "good morning", es: "buenos días" },
+    { en: "good afternoon", es: "buenas tardes" },
+    { en: "good evening", es: "buena tarde/noche" },
+    { en: "good night", es: "buenas noches" },
+    { en: "you're welcome", es: "de nada" },
+    { en: "nice to meet you", es: "mucho gusto" },
+    { en: "how are you", es: "cómo estás" },
+    { en: "i'm fine", es: "estoy bien" },
+    { en: "welcome", es: "bienvenido" },
+    { en: "take care", es: "cuídate" },
+    { en: "see you later", es: "nos vemos luego" },
+    { en: "good luck", es: "buena suerte" },
+    { en: "congratulations", es: "felicidades" },
+    { en: "please help me", es: "por favor ayúdame" },
+    { en: "thank you very much", es: "muchísimas gracias" },
+    { en: "sorry to bother you", es: "perdón por molestarte" },
+    { en: "don't mention it", es: "no hay de qué" },
+    { en: "please take a seat", es: "por favor toma asiento" },
+    { en: "after you", es: "después de ti" },
+    { en: "enjoy your meal", es: "buen provecho" }
+];
+
+let cards = [];
+let flipped = [];
+let lockBoard = false;
+let score = 0;
+let matches = 0;
+
+pairs.forEach(p => {
+    cards.push({ text: p.en, pair: p.es, lang: "IN" });
+    cards.push({ text: p.es, pair: p.en, lang: "ES" });
+});
+
+cards = cards.sort(() => Math.random() - 0.5);
+
+const board = document.getElementById("gameBoard");
+
+function drawBoard() {
+    board.innerHTML = "";
+    cards.forEach(card => {
+        const div = document.createElement("div");
+        div.classList.add("card");
+        div.dataset.text = card.text;
+        div.dataset.pair = card.pair;
+        div.dataset.lang = card.lang;
+
+        div.innerHTML = `
+            <div class="front">
+                <div class="langTag">${card.lang}</div>
+                ?
+            </div>
+            <div class="back">
+                <div>${card.text}</div>
+            </div>
+        `;
+
+        div.addEventListener("click", () => flipCard(div));
+        board.appendChild(div);
+    });
+}
+
+drawBoard();
+
+function flipCard(card) {
+    if (lockBoard) return;
+    if (card.classList.contains("flipped")) return;
+
+    card.classList.add("flipped");
+    flipped.push(card);
+
+    if (flipped.length === 2) checkMatch();
+}
+
+function checkMatch() {
+    lockBoard = true;
+    const [c1, c2] = flipped;
+
+    if (c1.dataset.text === c2.dataset.pair || c2.dataset.text === c1.dataset.pair) {
+        score += 100;
+        matches++;
+        document.getElementById("score").textContent = score;
+        document.getElementById("matches").textContent = matches;
+
+        flipped = [];
+        lockBoard = false;
+
+    } else {
+
+        if (score >= 500) {
+            score -= 50;
+        }
+        document.getElementById("score").textContent = score;
+
+        setTimeout(() => {
+            c1.classList.remove("flipped");
+            c2.classList.remove("flipped");
+            flipped = [];
+            lockBoard = false;
+        }, 900);
+    }
+}
+
+// TIMER
+let time = 600;
+const timer = document.getElementById("timer");
+
+setInterval(() => {
+    if (time <= 0) return;
+    time--;
+    const min = String(Math.floor(time / 60)).padStart(2, "0");
+    const sec = String(time % 60).padStart(2, "0");
+    timer.textContent = `${min}:${sec}`;
+}, 1000);
+
+// REINICIAR
+const restartBtn = document.getElementById("restartBtn");
+restartBtn.addEventListener("click", () => {
+    location.reload();
+});
+
+// CAMBIO AUTOMÁTICO DE FONDO
+setInterval(() => {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    document.body.style.background = `rgb(${r},${g},${b})`;
+}, 4000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verbos en Inglés - Tarjetas Interactivas</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', Arial, sans-serif;
+        background: #39f5cf;
+        color: white;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 5px;
+    }
+
+    p.subtitulo {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    /* ⭐ VIDEO CUADRADO GRANDE ⭐ */
+    .video-container {
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto 40px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .video-container iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+        padding: 10px 30px;
+        justify-items: center;
+        grid-auto-rows: 260px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        perspective: 900px;
+        cursor: pointer;
+    }
+
+    .inner {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.7s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .card.flipped .inner {
+        transform: rotateY(180deg);
+    }
+
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 3px 7px rgba(0,0,0,0.25);
+        padding: 10px;
+        text-align: center;
+        color: #1abc9c;
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .front img, .back img {
+        width: 140px;
+        height: 140px;
+        border-radius: 10px;
+        margin: 5px 0;
+    }
+
+    .volver {
+        margin: 30px auto;
+        display: block;
+        background: white;
+        color: #1abc9c;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        width: 180px;
+        text-decoration: none;
+    }
+</style>
+
+<script>
+function flip(card){
+    card.classList.toggle('flipped');
+}
+</script>
+
+</head>
+<body>
+
+<h1>❤️Verbos en Inglés❤️</h1>
+<p class="subtitulo">Toca cada tarjeta para ver la seña y su significado</p>
+
+<!-- ⭐ VIDEO CUADRADO ⭐ -->
+<div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/hBnD2ff2gcE"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<div class="grid">
+
+<!-- 🟢 LAS 30 TARJETAS 🟢 -->
+
+<!-- 1 run -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>run</h2><img src="run.jpg"><p>correr</p></div>
+<div class="back"><h2>run </h2><img src="correr.jpg"><p><b>run</b> = correr</p></div>
+</div></div>
+
+<!-- 2 eat -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>eat</h2><img src="eat1.jpg"><p>comer</p></div>
+<div class="back"><h2>eat </h2><img src="eat.jpg"><p><b>eat</b> = comer</p></div>
+</div></div>
+
+<!-- 3 sleep -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>sleep</h2><img src="sleep.jpg"><p>dormir</p></div>
+<div class="back"><h2>sleep </h2><img src="dormir.jpg"><p><b>sleep</b> = dormir</p></div>
+</div></div>
+
+<!-- 4 jump -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>jump</h2><img src="jump.jpg"><p>saltar</p></div>
+<div class="back"><h2>jump </h2><img src="saltar.jpg"><p><b>jump</b> = saltar</p></div>
+</div></div>
+
+<!-- 5 read -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>read</h2><img src="read.jpg"><p>leer</p></div>
+<div class="back"><h2>read </h2><img src="leer.jpg"><p><b>read</b> = leer</p></div>
+</div></div>
+
+<!-- 6 write -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>write</h2><img src="write.jpg"><p>escribir</p></div>
+<div class="back"><h2>write </h2><img src="escribir.jpg"><p><b>write</b> = escribir</p></div>
+</div></div>
+
+<!-- 7 sing -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>sing</h2><img src="sing.jpg"><p>cantar</p></div>
+<div class="back"><h2>sing </h2><img src="cantar.jpg"><p><b>sing</b> = cantar</p></div>
+</div></div>
+
+<!-- 8 dance -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>dance</h2><img src="dance.jpg"><p>bailar</p></div>
+<div class="back"><h2>dance </h2><img src="bailar.jpg"><p><b>dance</b> = bailar</p></div>
+</div></div>
+
+<!-- 9 drink -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>drink</h2><img src="drink.jpg"><p>beber</p></div>
+<div class="back"><h2>drink </h2><img src="beber.jpg"><p><b>drink</b> = beber</p></div>
+</div></div>
+
+<!-- 10 play -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>play</h2><img src="play.jpg"><p>jugar</p></div>
+<div class="back"><h2>play </h2><img src="jugar.jpg"><p><b>play</b> = jugar</p></div>
+</div></div>
+
+<!-- 11 open -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>open</h2><img src="open.jpg"><p>abrir</p></div>
+<div class="back"><h2>open </h2><img src="abrir.jpg"><p><b>open</b> = abrir</p></div>
+</div></div>
+
+<!-- 12 close -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>close</h2><img src="close.jpg"><p>cerrar</p></div>
+<div class="back"><h2>close </h2><img src="cerrar.jpg"><p><b>close</b> = cerrar</p></div>
+</div></div>
+
+<!-- 13 sit -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>sit</h2><img src="sit.jpg"><p>sentarse</p></div>
+<div class="back"><h2>sit</h2><img src="sentar.jpg"><p><b>sit</b> = sentarse</p></div>
+</div></div>
+
+<!-- 14 stand -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>stand</h2><img src="stand.jpg"><p>pararse</p></div>
+<div class="back"><h2>stand </h2><img src="levantar.jpg"><p><b>stand</b> = pararse</p></div>
+</div></div>
+
+<!-- 15 walk -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>walk</h2><img src="walk.jpg"><p>caminar</p></div>
+<div class="back"><h2>walk </h2><img src="caminar.jpg"><p><b>walk</b> = caminar</p></div>
+</div></div>
+
+<!-- 16 talk -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>talk</h2><img src="talk.jpg"><p>hablar</p></div>
+<div class="back"><h2>talk </h2><img src="hablar.jpg"><p><b>talk</b> = hablar</p></div>
+</div></div>
+
+<!-- 17 listen -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>listen</h2><img src="listen.jpg"><p>escuchar</p></div>
+<div class="back"><h2>listen </h2><img src="escuchar.jpg"><p><b>listen</b> = escuchar</p></div>
+</div></div>
+
+<!-- 18 wash -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>wash</h2><img src="wash.jpg"><p>lavar</p></div>
+<div class="back"><h2>wash </h2><img src="lavar.jpg"><p><b>wash</b> = lavar</p></div>
+</div></div>
+
+<!-- 19 cook -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>cook</h2><img src="cook.jpg"><p>cocinar</p></div>
+<div class="back"><h2>cook </h2><img src="cocinar.jpg"><p><b>cook</b> = cocinar</p></div>
+</div></div>
+
+<!-- 20 cry -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>cry</h2><img src="cry.jpg"><p>llorar</p></div>
+<div class="back"><h2>cry </h2><img src="llorar.jpg"><p><b>cry</b> = llorar</p></div>
+</div></div>
+
+<!-- 21 smile -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>smile</h2><img src="smile.jpg"><p>sonreír</p></div>
+<div class="back"><h2>smile </h2><img src="sonreir.jpg"><p><b>smile</b> = sonreír</p></div>
+</div></div>
+
+<!-- 22 study -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>study</h2><img src="study.jpg"><p>estudiar</p></div>
+<div class="back"><h2>study </h2><img src="estudiar.jpg"><p><b>study</b> = estudiar</p></div>
+</div></div>
+
+<!-- 23 draw -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>draw</h2><img src="draw.jpg"><p>dibujar</p></div>
+<div class="back"><h2>draw</h2><img src="dib ujar.jpg"><p><b>draw</b> = dibujar</p></div>
+</div></div>
+
+<!-- 24 throw -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>throw</h2><img src="throw.jpg"><p>lanzar</p></div>
+<div class="back"><h2>throw </h2><img src="lanzar.jpg"><p><b>throw</b> = lanzar</p></div>
+</div></div>
+
+<!-- 25 catch -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>catch</h2><img src="catch.jpg"><p>atrapar</p></div>
+<div class="back"><h2>catch </h2><img src="atrapar.jpg"><p><b>catch</b> = atrapar</p></div>
+</div></div>
+
+<!-- 26 drive -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>drive</h2><img src="drive.jpg"><p>conducir</p></div>
+<div class="back"><h2>drive </h2><img src="manejar.jpg"><p><b>drive</b> = conducir</p></div>
+</div></div>
+
+<!-- 27 push -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>push</h2><img src="push.jpg"><p>empujar</p></div>
+<div class="back"><h2>push </h2><img src="empujar.jpg"><p><b>push</b> = empujar</p></div>
+</div></div>
+
+<!-- 28 pull -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>pull</h2><img src="pull.jpg"><p>jalar</p></div>
+<div class="back"><h2>pull </h2><img src="jalar.jpg"><p><b>pull</b> = jalar</p></div>
+</div></div>
+
+<!-- 29 help -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>help</h2><img src="ayudar.jpg"><p>ayudar</p></div>
+<div class="back"><h2>help </h2><img src="help.jpg"><p><b>help</b> = ayudar</p></div>
+</div></div>
+
+<!-- 30 look -->
+<div class="card" onclick="flip(this)"><div class="inner">
+<div class="front"><h2>look</h2><img src="look.jpg"><p>mirar</p></div>
+<div class="back"><h2>look </h2><img src="mirar.jpg"><p><b>look</b> = mirar</p></div>
+</div></div>
+
+</div>
+
+<a href="index.html" class="volver">⬅ Ir a inicio</a>
+</style>
+<div class="btn-jugar">
+  <a href="juegos_verbos.html">🎮 Ir a jugar</a>
+</div>
+
+<style>
+  .btn-jugar {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+
+  .btn-jugar a {
+    background-color: #1abc9c;      /* Turquesa */
+    color: white;
+    font-size: 2em;                 /* Botón grande */
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px 50px;             /* Tamaño grande */
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .btn-jugar a:hover {
+    background-color: #16a085;     /* Turquesa más oscuro */
+    transform: scale(1.08);        /* Efecto de agrandarse */
+  }
+</style>
+
+</body>
+</html>

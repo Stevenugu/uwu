@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="ranna.jpeg">
+  <title>Memorama de Modales</title>
+
+  <style>
+    body {
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+      background-color: #e3f9f6;
+      text-align: center;
+      margin: 0;
+    }
+
+    h1 {
+      background-color: #3bebcb;
+      color: white;
+      padding: 25px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      width: 100%;
+      height: 160px;
+      position: relative;
+      cursor: pointer;
+      perspective: 800px;
+    }
+
+    .inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .inner {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .front {
+      background-color: #1abc9c;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    a.volver {
+      display: inline-block;
+      margin: 20px;
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Memorama de Modales en Inglés y Señas</h1>
+
+<div class="grid" id="grid"></div>
+
+<a href="index.html" class="volver">← Volver al inicio</a>
+
+<script>
+  // Lista de parejas (imagen normal + imagen en señas)
+  const cardsData = [
+    ["porfavor.jpg", "porfa señas.jpg"],
+    ["gracias.jpg", "gracia señas.jpg"],
+    ["lo siento.jpg", "lo siento señas .jpg"],
+    ["hola.jpg", "hola señas.jpg"],
+    ["adios.jpg", "adios señas.jpg"],
+    ["disculpa.jpg", "permisoseñas.jpg"],
+    ["buenos dias.jpg", "dias señas.jpg"],
+    ["buenas tardes.jpg", "tardes señas.jpg"],
+    ["buenas noches.jpg", "noches señas.jpg"],
+    ["dnd.jpg", "dndseñas.jpg"],
+    ["encantrado.jpg", "conocerte señas.jpg"],
+    ["como tas.jpg", "como tas señas.jpg"],
+    ["bien.jpg", "bienseñas.jpg"],
+    ["bienvenido.jpg", "bienvenido señas.jpg"],
+    ["cuidate.jpg", "cuidate señas.jpg"],
+    ["luego.jpg", "nos vemos señas.jpg"],
+    ["suerte.jpg", "suerte señas.jpg"],
+    ["felisidad.jpg", "felizidad señas.jpg"],
+    ["ayuda.jpg", "ayud señas.jpg"],
+    ["perdon.jpg", "perdon señas.jpg"],
+    ["muchas g.jpg", "gracia señas.jpg"],
+    ["por molestar.jpg", "perdon señas.jpg"],
+    ["no problem.jpg", "bien señas.jpg"],
+    ["toma aciento.jpg", "asiento señas.jpg"],
+    ["despues.jpg", "despuesseñas.jpg"],
+    ["disfruta.jpg", "comidaseña.jpg"]
+  ];
+
+  // Crear el doble de tarjetas: front + señas
+  let cards = [];
+
+  cardsData.forEach((pair, index) => {
+    cards.push({ id: index, img: pair[0] });
+    cards.push({ id: index, img: pair[1] });
+  });
+
+  // Mezclar
+  cards = cards.sort(() => Math.random() - 0.5);
+
+  const grid = document.getElementById("grid");
+  let selected = [];
+  let lock = false;
+
+  // Crear tarjetas en pantalla
+  cards.forEach((card, i) => {
+    let cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    cardElement.dataset.id = card.id;
+
+    cardElement.innerHTML = `
+      <div class="inner">
+        <div class="front"></div>
+        <div class="back">
+          <img src="${card.img}">
+        </div>
+      </div>
+    `;
+
+    cardElement.addEventListener("click", () => flipCard(cardElement));
+
+    grid.appendChild(cardElement);
+  });
+
+  function flipCard(card) {
+    if (lock) return;
+    if (card.classList.contains("flipped")) return;
+
+    card.classList.add("flipped");
+    selected.push(card);
+
+    if (selected.length === 2) {
+      lock = true;
+      setTimeout(checkMatch, 800);
+    }
+  }
+
+  function checkMatch() {
+    let [card1, card2] = selected;
+
+    if (card1.dataset.id === card2.dataset.id) {
+      card1.classList.add("hidden");
+      card2.classList.add("hidden");
+    } else {
+      card1.classList.remove("flipped");
+      card2.classList.remove("flipped");
+    }
+
+    selected = [];
+    lock = false;
+  }
+</script>
+
+</body>
+</html>

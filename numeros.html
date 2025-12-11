@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprende los numeros en ingles y en lenguaje de señas</title>
+<style>
+/* =========================== */
+/* =======  CSS GLOBAL  ====== */
+/* =========================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #dfffe9;
+  text-align: center;
+}
+header {
+  background: #1abc9c;
+  color: white;
+  padding: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* VIDEO CUADRADO */
+.video-box {
+  width: 500px;
+  height: 500px;
+  margin: 20px auto;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BOTÓN DE NAVEGACIÓN */
+.menu {
+  background: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.menu a {
+  padding: 10px 18px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.menu a:hover {
+  background: #217dbb;
+}
+
+/* ===================================== */
+/* =============== TARJETAS ============ */
+/* ===================================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  perspective: 1000px;
+}
+.card {
+  width: 150px;
+  height: 180px;
+  position: relative;
+  cursor: pointer;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+.card-back { 
+  transform: rotateY(180deg); 
+}
+.card-front h2 { font-size: 36px; margin: 0; }
+.card-front p { font-size: 18px; margin: 4px 0; }
+
+/* ===================================== */
+/* ========== ESTILOS JUEGO 2 ========= */
+/* ===================================== */
+.game-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  background: #32CD32;
+  border-radius: 40px;
+  color: white;
+  box-shadow: 0 0 0 10px #228B22;
+}
+.instructions {
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.mascot img {
+  width: 180px;
+}
+.lives span {
+  font-size: 40px;
+}
+.number-cards { margin-top: 20px; }
+.card-container {
+  background: #fff;
+  color: black;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 15px;
+}
+.number {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.options label {
+  background: #444;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.options input[type="radio"] { display: none; }
+.options label:hover { background: #2980b9; }
+.options input[type="radio"]:checked + label { background: #2ecc71; }
+
+/* ===================================== */
+/* ======== GAME OVER Y VICTORIA ====== */
+/* ===================================== */
+.game-over, .victory-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+.retry-button {
+  padding: 12px 25px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===================================== */
+/* ======== BOTÓN IR A INICIO ========== */
+.inicio-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 30px;
+  background-color: #1abc9c; /* turquesa */
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.inicio-button:hover {
+  background-color: #16a085;
+}
+</style>
+</head>
+<body>
+
+<header>Aprende los numeros en ingles y en lenguaje de señas</header>
+
+<div class="menu">
+  <a href="#tarjetas">Tarjetas Interactivas</a>
+  <a href="#juego">Juego con la Rana</a>
+</div>
+
+<!-- 🔽 VIDEO ABAJO DEL MENÚ 🔽 -->
+<div class="video-box">
+  <iframe 
+    width="100%" 
+    height="100%" 
+    src="https://www.youtube.com/embed/54VAvrZU_s4" 
+    title="Video LSM números" 
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- ========================================== -->
+<!-- ========== SECCIÓN TARJETAS =============== -->
+<!-- ========================================== -->
+<section id="tarjetas">
+  <h1>Números en Inglés – Tarjetas</h1>
+  <p>Haz clic para girar cada tarjeta.</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- ========================================== -->
+<!-- ============= SECCIÓN JUEGO =============== -->
+<!-- ========================================== -->
+<section id="juego">
+  <div class="game-container">
+    <h2>Juego de Selección – Aprende Números</h2>
+    <div class="instructions"><strong>Instrucciones:</strong> Selecciona la palabra correcta.</div>
+
+    <div class="mascot"><img id="mascotImg" src="idle.jpeg"></div>
+    <div class="lives"><span>❤️</span><span>❤️</span><span>❤️</span></div>
+
+    <div class="number-cards">
+      <div class="card-container">
+        <div class="number">1</div>
+        <div class="options">
+          <input id="one1" type="radio" name="n1" value="one"><label for="one1">ONE</label>
+          <input id="two1" type="radio" name="n1" value="two"><label for="two1">TWO</label>
+          <input id="three1" type="radio" name="n1" value="three"><label for="three1">THREE</label>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="number">2</div>
+        <div class="options">
+          <input id="one2" type="radio" name="n2" value="one"><label for="one2">ONE</label>
+          <input id="two2" type="radio" name="n2" value="two"><label for="two2">TWO</label>
+          <input id="four2" type="radio" name="n2" value="four"><label for="four2">FOUR</label>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="number">3</div>
+        <div class="options">
+          <input id="five3" type="radio" name="n3" value="five"><label for="five3">FIVE</label>
+          <input id="three3" type="radio" name="n3" value="three"><label for="three3">THREE</label>
+          <input id="two3" type="radio" name="n3" value="two"><label for="two3">TWO</label>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="number">4</div>
+        <div class="options">
+          <input id="three4" type="radio" name="n4" value="three"><label for="three4">THREE</label>
+          <input id="four4" type="radio" name="n4" value="four"><label for="four4">FOUR</label>
+          <input id="five4" type="radio" name="n4" value="five"><label for="five4">FIVE</label>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="number">5</div>
+        <div class="options">
+          <input id="four5" type="radio" name="n5" value="four"><label for="four5">FOUR</label>
+          <input id="six5" type="radio" name="n5" value="six"><label for="six5">SIX</label>
+          <input id="five5" type="radio" name="n5" value="five"><label for="five5">FIVE</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTÓN IR A INICIO -->
+    <a href="index.html" class="inicio-button">Ir a inicio</a>
+
+  </div>
+</section>
+
+<!-- GAME OVER y VICTORIA -->
+<div class="game-over" id="gameOver">
+  <h2>¡Has perdido todas tus vidas!</h2>
+  <a class="retry-button" onclick="location.reload()">Reintentar</a>
+</div>
+
+<div class="victory-screen" id="victory">
+  <h2>¡Felicidades! 🎉</h2>
+  <p>Completaste el juego correctamente</p>
+  <a class="retry-button" onclick="location.reload()">Volver a jugar</a>
+</div>
+
+<!-- ========================================== -->
+<!-- =============== SCRIPT ==================== -->
+<!-- ========================================== -->
+<script>
+// ================== TARJETAS ==================
+function colorAleatorio() {
+  const r = Math.floor(Math.random() * 156 + 100);
+  const g = Math.floor(Math.random() * 156 + 100);
+  const b = Math.floor(Math.random() * 156 + 100);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Lista de números con palabra y ruta de imagen trasera
+const numeros = [
+  {num:1, palabra:"One", imgBack:"1.jpg"},
+  {num:2, palabra:"Two", imgBack:"2.jpg"},
+  {num:3, palabra:"Three", imgBack:"3.jpg"},
+  {num:4, palabra:"Four", imgBack:"4.jpg"},
+  {num:5, palabra:"Five", imgBack:"5.jpg"},
+  {num:6, palabra:"Six", imgBack:"6.jpg"},
+  {num:7, palabra:"Seven", imgBack:"7.jpg"},
+  {num:8, palabra:"Eight", imgBack:"8.jpg"},
+  {num:9, palabra:"Nine", imgBack:"9.jpg"},
+  {num:10, palabra:"Ten", imgBack:"10.jpg"},
+  {num:20, palabra:"Twenty", imgBack:"20.jpg"},
+  {num:30, palabra:"Thirty", imgBack:"30.jpg"},
+  {num:40, palabra:"Forty", imgBack:"40.jpg"},
+  {num:50, palabra:"Fifty", imgBack:"50.jpg"},
+  {num:60, palabra:"Sixty", imgBack:"60.jpg"},
+  {num:70, palabra:"Seventy", imgBack:"70.jpg"},
+  {num:80, palabra:"Eighty", imgBack:"80.jpg"},
+  {num:90, palabra:"Ninety", imgBack:"90.jpg"},
+  {num:100, palabra:"One Hundred", imgBack:"100.jpg"}
+];
+
+const contenedor = document.getElementById("cards");
+
+numeros.forEach(d => {
+  const c = document.createElement("div");
+  c.className = "card";
+  c.innerHTML = `
+    <div class='card-inner'>
+      <div class='card-front'>
+        <h2>${d.num}</h2>
+        <p>${d.palabra}</p>
+      </div>
+      <div class='card-back'>
+        <img src="${d.imgBack}" style="width:100%; height:100%; border-radius:15px;">
+      </div>
+    </div>`;
+
+  const front = c.querySelector('.card-front');
+
+  c.addEventListener('click',()=>{
+    c.classList.toggle('flipped');
+    if(!c.classList.contains('flipped')) front.style.background=colorAleatorio();
+  });
+
+  contenedor.appendChild(c);
+});
+
+// ================== JUEGO ==================
+let lives = 3;
+const mascot = document.getElementById('mascotImg');
+
+function updateLives() {
+  const l = document.querySelector('.lives');
+  l.innerHTML = '';
+  for (let i=0;i<3;i++) l.innerHTML += i < lives ? '❤️' : '🖤';
+}
+
+function checkVictory() {
+  const correct = [
+    document.getElementById('one1').checked,
+    document.getElementById('two2').checked,
+    document.getElementById('three3').checked,
+    document.getElementById('four4').checked,
+    document.getElementById('five5').checked
+  ];
+  if(correct.every(x => x)) document.getElementById('victory').style.display='flex';
+}
+
+document.querySelectorAll('input[type="radio"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const id = r.id;
+    const val = r.value;
+
+    const correct =
+      (id === 'one1' && val==='one') ||
+      (id === 'two2' && val==='two') ||
+      (id === 'three3' && val==='three') ||
+      (id === 'four4' && val==='four') ||
+      (id === 'five5' && val==='five');
+
+    if(!correct){
+      mascot.src = 'youve_failed.jpeg';
+      setTimeout(()=>mascot.src='idle.jpeg',800);
+      lives--;
+      updateLives();
+      if(lives<=0) document.getElementById('gameOver').style.display='flex';
+    } else {
+      mascot.src = 'frog_happy.jpeg';
+      setTimeout(()=>mascot.src='idle.jpeg',800);
+    }
+
+    checkVictory();
+  });
+});
+</script>
+</body>
+</html>

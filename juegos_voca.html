@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Juego de Vocabulario</title>
+<style>
+    body {
+        font-family: Arial;
+        margin:0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(45deg, #89CFF0, #FFDEE9);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position:0% 50%;}
+        50% {background-position:100% 50%;}
+        100% {background-position:0% 50%;}
+    }
+
+    #game-container, #final-screen {
+        background: rgba(255,255,255,0.9);
+        padding: 30px;
+        border-radius: 15px;
+        width: 500px;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .option {
+        background: #e3f1ff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .option:hover { background: #c5e4ff; }
+    .correct { background: #b8f2b8 !important; }
+    .wrong { background: #ffb5b5 !important; }
+
+    #next-btn, #start-btn {
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        background: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    #next-btn { display: none; }
+
+    /* ⭐ BOTÓN IR A INICIO  */
+    #home-btn {
+        padding: 12px 25px;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: #1abc9c; /* turquesa */
+        color: white;
+        transition: 0.3s;
+    }
+
+    #home-btn:hover {
+        background: #17a085;
+        transform: scale(1.05);
+    }
+
+    #word-image { width: 200px; height: 200px; object-fit: cover; border-radius: 12px; margin: 15px auto; display: block; background: #ddd; }
+
+    #final-screen img {
+        width: 300px;
+        height: 300px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div id="game-container">
+    <h1>Juego de Vocabulario</h1>
+    <div id="score">Puntuación: 0</div>
+    <div id="timer">Tiempo: 10</div>
+    <img id="word-image">
+    <h2 id="question">Presiona comenzar</h2>
+    <div id="options"></div>
+
+    <button id="start-btn">Comenzar</button>
+    <button id="next-btn">Siguiente</button>
+
+    <!-- ⭐ BOTÓN IR A INICIO -->
+    <button id="home-btn" onclick="location.href='index.html'">Ir a inicio</button>
+</div>
+
+<div id="final-screen" style="display:none;">
+    <h1 id="final-text"></h1>
+    <img id="final-img">
+    <button id="home-btn" onclick="location.href='index.html'">Ir a inicio</button>
+</div>
+
+<script>
+// -----------------------------
+// CONFIGURACIÓN DE PALABRAS
+// -----------------------------
+const words = {
+    "manzana": ["apple", "imagenes/apple.jpg"],
+    "perro": ["dog", "imagenes/dog.jpg"],
+    "pelota": ["ball", "imagenes/ball.jpg"],
+    "casa": ["house", "imagenes/house.jpg"],
+    "agua": ["water", "imagenes/water.jpg"],
+    "leche": ["milk", "imagenes/milk.jpg"],
+    "gato": ["cat", "imagenes/cat.png"],
+    "familia": ["family", "imagenes/family.jpg"],
+    "pez": ["fish", "imagenes/fish.png"],
+    "mesa": ["table", "imagenes/table.png"],
+    "jugo": ["juice", "imagenes/juice.jpg"],
+    "libro": ["book", "imagenes/book.png"],
+    "coche": ["car", "imagenes/car.png"],
+    "hermano": ["brother", "imagenes/brother.png"],
+    "ventana": ["window", "imagenes/window.png"],
+    "banana": ["banana", "imagenes/banana.png"],
+    "silla": ["chair", "imagenes/chair.jpg"],
+    "león": ["lion", "imagenes/lion.png"],
+    "zapatos": ["shoes", "imagenes/shoes.png"],
+    "ayuda": ["help", "imagenes/help.png"]
+};
+
+let score = 0;
+let used = [];
+let currentCorrect = "";
+let currentImage = "";
+let timer;
+let timeLeft = 10;
+const maxRounds = 20;
+
+document.getElementById("start-btn").onclick = startGame;
+document.getElementById("next-btn").onclick = newQuestion;
+
+function startGame(){
+    score = 0;
+    used = [];
+    document.getElementById("score").innerText = "Puntuación: 0";
+    document.getElementById("final-screen").style.display = "none";
+    document.getElementById("game-container").style.display = "block";
+    document.getElementById("start-btn").style.display = "none";
+    newQuestion();
+}
+
+function startTimer(){
+    clearInterval(timer);
+    timeLeft = 10;
+    document.getElementById("timer").innerText = "Tiempo: " + timeLeft;
+    timer = setInterval(()=>{
+        timeLeft--;
+        document.getElementById("timer").innerText = "Tiempo: " + timeLeft;
+        if(timeLeft <=0){
+            clearInterval(timer);
+            disableOptions();
+            showCorrect();
+            document.getElementById("next-btn").style.display = "block";
+        }
+    },1000);
+}
+
+function newQuestion(){
+    clearInterval(timer);
+    if(used.length >= maxRounds){
+        endGame();
+        return;
+    }
+    document.getElementById("next-btn").style.display = "none";
+    document.getElementById("options").innerHTML = "";
+    const keys = Object.keys(words);
+    let word;
+    do { word = keys[Math.floor(Math.random()*keys.length)]; } while (used.includes(word));
+    used.push(word);
+    currentCorrect = words[word][0];
+    currentImage = words[word][1];
+    document.getElementById("question").innerText = `¿Cuál es la traducción de: "${word}"?`;
+    document.getElementById("word-image").src = currentImage;
+
+    let answers = [currentCorrect];
+    while(answers.length < 4){
+        let randomWord = words[keys[Math.floor(Math.random()*keys.length)]][0];
+        if(!answers.includes(randomWord)) answers.push(randomWord);
+    }
+    answers.sort(()=>Math.random()-0.5);
+    answers.forEach(ans=>{
+        let div = document.createElement("div");
+        div.className = "option";
+        div.innerText = ans;
+        div.onclick = ()=>checkAnswer(div);
+        document.getElementById("options").appendChild(div);
+    });
+    startTimer();
+}
+
+function checkAnswer(div){
+    clearInterval(timer);
+    disableOptions();
+    if(div.innerText === currentCorrect){
+        div.classList.add("correct");
+        score++;
+        document.getElementById("score").innerText = "Puntuación: "+score;
+    } else {
+        div.classList.add("wrong");
+        showCorrect();
+    }
+    document.getElementById("next-btn").style.display = "block";
+}
+
+function disableOptions(){
+    document.querySelectorAll(".option").forEach(op=>op.onclick=null);
+}
+
+function showCorrect(){
+    document.querySelectorAll(".option").forEach(op=>{
+        if(op.innerText===currentCorrect) op.classList.add("correct");
+    });
+}
+
+function endGame(){
+    clearInterval(timer);
+    document.getElementById("game-container").style.display = "none";
+    document.getElementById("final-screen").style.display = "block";
+
+    const finalText = document.getElementById("final-text");
+    const finalImg = document.getElementById("final-img");
+
+    if(score >= 15){
+        finalText.innerText = "Final del juego, ¡ganaste!";
+        finalImg.src = "imagenes/win.jpg";
+    } else {
+        finalText.innerText = "Jaja nuv";
+        finalImg.src = "imagenes/lose.jpg";
+    }
+}
+</script>
+</body>
+</html>

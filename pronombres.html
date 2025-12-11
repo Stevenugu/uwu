@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pronombres en Inglés - Lengua de Señas + Minijuego</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f9f9;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+  }
+
+  header {
+    background-color: #f645d5;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  h1 { margin: 0; font-size: 2.5rem; }
+  h2 { color: #40E0D0; margin-bottom: 15px; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    width: 150px;
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .card.flipped .card-inner { transform: rotateY(180deg); }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .card-front { background-color: #a540e0; }
+
+  .card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    color: black;
+    padding: 5px;
+  }
+
+  .card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  a.volver {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #40E0D0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .word, .target {
+    border: 2px dashed #2b7a0b;
+    padding: 10px;
+    width: 180px;
+    min-height: 140px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: grab;
+  }
+
+  .word { background-color: #d58df6; }
+  .target { background-color: #f791d0; }
+
+  .correct { border-color: #4114d5; }
+  .incorrect { border-color: #ff6666; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Pronombres en Inglés</h1>
+  <p>Aprende los pronombres personales en inglés y cómo se representan en lengua de señas,ojo...no se voltean las targetas del verbo tu be.<p>
+</header>
+
+<!-- Tarjetas de pronombres -->
+<section class="cards" id="cards"></section>
+
+<!-- Tarjetas am/is/are -->
+<h2>Verbo To Be</h2>
+<section class="cards" id="verbCards"></section>
+
+<!-- Video -->
+<div style="margin: 20px 0;">
+  <iframe width="320" height="320"
+    src="https://www.youtube.com/embed/lq266RkrTWc"
+    title="Video de YouTube"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- Minijuego -->
+<h1>Minijuego 1: Empareja los Pronombres</h1>
+<p>Arrastra el pronombre en inglés hasta su equivalente en español.</p>
+
+<div class="container" id="wordsContainer"></div>
+<div class="container" id="targetsContainer"></div>
+
+<div id="result"></div>
+
+<a href="index.html" class="volver">← Volver al inicio</a>
+
+<script>
+  /* --------------------------------------------
+     TARJETAS ORIGINALES CON IMAGEN ATRÁS
+  -------------------------------------------- */
+  const pronombres = [
+    { palabra: "I-yo", img: "señal yo.jpg" },
+    { palabra: "You-tu", img: "tuu.jpg" },
+    { palabra: "He-el", img: "el.jpg" },
+    { palabra: "She-ella", img: "ella.jpg" },
+    { palabra: "It-eso", img: "eso.jpg" },
+    { palabra: "We-nosotros", img: "nosotros.jpg" },
+    { palabra: "They-ellos", img: "ellos.jpg" }
+  ];
+
+  const contenedor = document.getElementById("cards");
+
+  pronombres.forEach(({ palabra, img }) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">${palabra}</div>
+        <div class="card-back">
+          <img src="${img}" alt="${palabra}">
+        </div>
+      </div>
+    `;
+
+    card.addEventListener("click", () => card.classList.toggle("flipped"));
+    contenedor.appendChild(card);
+  });
+
+  /* --------------------------------------------
+     TARJETAS VERBO TO BE (SIN IMAGEN Y SIN GIRAR)
+  -------------------------------------------- */
+  const beVerbs = [
+    { palabra: "AM → (I)" },
+    { palabra: "IS → (He / She / It)" },
+    { palabra: "ARE → (You / We / They)" }
+  ];
+
+  const verbContainer = document.getElementById("verbCards");
+
+  beVerbs.forEach(({ palabra }) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <div class="card-front"
+           style="background-color:#a540e0;
+                  width:100%;
+                  height:100%;
+                  border-radius:12px;
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;
+                  font-weight:bold;
+                  color:white;
+                  font-size:1.2rem;">
+        ${palabra}
+      </div>
+    `;
+
+    /* NO GIRAN */
+    verbContainer.appendChild(card);
+  });
+
+  /* --------------------------------------------
+     MINIJUEGO
+  -------------------------------------------- */
+  const pronouns = [
+    { id: "I", match: "yo" },
+    { id: "you", match: "tú" },
+    { id: "he", match: "él" },
+    { id: "she", match: "ella" },
+    { id: "it", match: "eso" },
+    { id: "we", match: "nosotros" },
+    { id: "they", match: "ellos" }
+  ];
+
+  const targets = [
+    { target: "yo" },
+    { target: "tú" },
+    { target: "él" },
+    { target: "ella" },
+    { target: "eso" },
+    { target: "nosotros" },
+    { target: "ellos" }
+  ];
+
+  const wordsContainer = document.getElementById("wordsContainer");
+  const targetsContainer = document.getElementById("targetsContainer");
+  const result = document.getElementById("result");
+
+  let correctCount = 0;
+
+  pronouns.sort(() => Math.random() - 0.5);
+
+  pronouns.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "word";
+    div.draggable = true;
+    div.id = p.id;
+    div.dataset.match = p.match;
+    div.innerHTML = `<strong>${p.id}</strong>`;
+    wordsContainer.appendChild(div);
+  });
+
+  targets.forEach(t => {
+    const div = document.createElement("div");
+    div.className = "target";
+    div.dataset.target = t.target;
+    div.innerHTML = `<strong>${t.target}</strong>`;
+    targetsContainer.appendChild(div);
+  });
+
+  const words = document.querySelectorAll(".word");
+  const targetsEls = document.querySelectorAll(".target");
+
+  words.forEach(word => {
+    word.addEventListener("dragstart", e =>
+      e.dataTransfer.setData("text", e.target.id)
+    );
+  });
+
+  targetsEls.forEach(target => {
+    target.addEventListener("dragover", e => e.preventDefault());
+    target.addEventListener("drop", drop);
+  });
+
+  function drop(e) {
+    e.preventDefault();
+    const draggedId = e.dataTransfer.getData("text");
+    const draggedEl = document.getElementById(draggedId);
+    const match = draggedEl.dataset.match;
+    const targetMatch = e.target.closest(".target").dataset.target;
+
+    if (match === targetMatch && !e.target.closest(".target").querySelector(".word")) {
+      e.target.closest(".target").appendChild(draggedEl);
+      e.target.closest(".target").classList.add("correct");
+      showResult(true);
+      correctCount++;
+
+      if (correctCount === pronouns.length) {
+        setTimeout(() => {
+          result.innerHTML = `<h2>¡Excelente! Has emparejado todos correctamente ⭐</h2>`;
+        }, 800);
+      }
+    } else {
+      e.target.closest(".target").classList.add("incorrect");
+      showResult(false);
+    }
+  }
+
+  function showResult(isCorrect) {
+    result.innerHTML = "";
+    const msg = document.createElement("h3");
+    msg.textContent = isCorrect ? "¡Correcto!" : "Intenta de nuevo";
+    result.appendChild(msg);
+  }
+</script>
+
+</body>
+</html>

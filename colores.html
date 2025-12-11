@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Colores y Lengua de Señas + Juego en Inglés</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+  body {
+    background-color: #d9f3f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  h1, h2 {
+    width: 100%;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  h1 {
+    background-color: #40E0D0;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: normal;
+    padding: 25px 0;
+    margin: 0 0 30px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 12px;
+  }
+
+  .card {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background-color: white;
+  }
+
+  .card.flipped .inner {
+    transform: rotateY(180deg);
+  }
+
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .front img, .back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  /* ⭐ Tarjetas del juego ⭐ */
+  #opcionesColores {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  #opcionesColores button {
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+
+  #resultado {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 25px;
+  }
+
+  /* Botón Ir a inicio */
+  #btnInicio {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0 60px 0;
+  }
+  #btnInicio button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background: #40E0D0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Permanent Marker', cursive;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎨 Aprende los Colores en Lengua de Señas 👐</h1>
+
+<!-- ⭐ TODAS TUS TARJETAS ⭐ -->
+
+<!-- RED -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/ff0000/ffffff&text=Red"></div>
+    <div class="back"><img src="rojo.jpg"></div>
+  </div>
+</div>
+
+<!-- GREEN -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/00ff00/ffffff&text=Green"></div>
+    <div class="back"><img src="verde.jpg"></div>
+  </div>
+</div>
+
+<!-- BLUE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/0000ff/ffffff&text=Blue"></div>
+    <div class="back"><img src="azul.jpg"></div>
+  </div>
+</div>
+
+<!-- YELLOW -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/ffff00/000000&text=Yellow"></div>
+    <div class="back"><img src="amarillo.jpg"></div>
+  </div>
+</div>
+
+<!-- ORANGE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/ff7f00/ffffff&text=Orange"></div>
+    <div class="back"><img src="naranja.jpg"></div>
+  </div>
+</div>
+
+<!-- PINK -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/ff66aa/ffffff&text=Pink"></div>
+    <div class="back"><img src="rosa.jpg"></div>
+  </div>
+</div>
+
+<!-- PURPLE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/800080/ffffff&text=Purple"></div>
+    <div class="back"><img src="morado.jpg"></div>
+  </div>
+</div>
+
+<!-- BROWN -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/8B4513/ffffff&text=Brown"></div>
+    <div class="back"><img src="cafe.jpg"></div>
+  </div>
+</div>
+
+<!-- GRAY -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/808080/ffffff&text=Gray"></div>
+    <div class="back"><img src="gris.jpg"></div>
+  </div>
+</div>
+
+<!-- BLACK -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/000000/ffffff&text=Black"></div>
+    <div class="back"><img src="negro.jpg"></div>
+  </div>
+</div>
+
+<!-- WHITE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/dcdcdc/000000&text=White"></div>
+    <div class="back"><img src="blanco.jpg"></div>
+  </div>
+</div>
+
+<!-- LIGHT BLUE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/00e5ff/000000&text=Light+Blue"></div>
+    <div class="back"><img src="celeste.jpg"></div>
+  </div>
+</div>
+
+<!-- LIME -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/ccff00/000000&text=Lime"></div>
+    <div class="back"><img src="limon.jpg"></div>
+  </div>
+</div>
+
+<!-- VIOLET -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/8f00ff/ffffff&text=Violet"></div>
+    <div class="back"><img src="violeta.jpg"></div>
+  </div>
+</div>
+
+<!-- TURQUOISE -->
+<div class="card" onclick="flipCard(this)">
+  <div class="inner">
+    <div class="front"><img src="https://dummyimage.com/150x150/40e0d0/000000&text=Turquoise"></div>
+    <div class="back"><img src="turquesa.jpg"></div>
+  </div>
+</div>
+
+<!-- ⭐ VIDEO ⭐ -->
+<div style="width: 100%; max-width: 1000px; margin: 40px auto; text-align: center;">
+  <h2 style="color: #40E0D0; margin-bottom: 20px;">Video sobre los colores</h2>
+  <iframe width="100%" height="500"
+          src="https://www.youtube.com/embed/EE0UvSiLzj4"
+          frameborder="0" allowfullscreen
+          style="border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+  </iframe>
+</div>
+
+<!-- ⭐ JUEGO ⭐ -->
+<div id="juegoColores">
+  <h2>🎮 Juego: Guess the Color (Adivina el Color)</h2>
+  <p id="preguntaColor" style="font-size:1.8rem; font-weight:bold;">
+    Qué color es: <span id="colorObjetivo"></span>?
+  </p>
+  <div id="opcionesColores"></div>
+  <p id="resultado"></p>
+</div>
+
+<!-- BOTÓN INICIO -->
+<div id="btnInicio">
+  <button onclick="window.location.href='index.html'">Ir a inicio</button>
+</div>
+
+<script>
+  function flipCard(card) { 
+    card.classList.toggle('flipped'); 
+  }
+
+  const coloresJuego = [
+    { nombreEn: "Red", codigo: "#ff0000" },
+    { nombreEn: "Green", codigo: "#00ff00" },
+    { nombreEn: "Blue", codigo: "#0000ff" },
+    { nombreEn: "Yellow", codigo: "#ffff00" },
+    { nombreEn: "Orange", codigo: "#ff7f00" },
+    { nombreEn: "Pink", codigo: "#ff66aa" },
+    { nombreEn: "Purple", codigo: "#800080" },
+    { nombreEn: "Brown", codigo: "#8B4513" },
+    { nombreEn: "Gray", codigo: "#808080" },
+    { nombreEn: "Black", codigo: "#000000" },
+    { nombreEn: "White", codigo:"#ffffff" },
+    { nombreEn: "Light Blue", codigo:"#00e5ff" },
+    { nombreEn: "Lime", codigo:"#ccff00" },
+    { nombreEn: "Violet", codigo:"#8f00ff" },
+    { nombreEn: "Turquoise", codigo:"#40e0d0" }
+  ];
+
+  let colorCorrecto = null;
+  let oportunidades = 3;
+
+  const vidasTexto = document.createElement("p");
+  vidasTexto.style.fontSize = "1.5rem";
+  vidasTexto.style.fontWeight = "bold";
+  vidasTexto.id = "vidasContador";
+  document.getElementById("juegoColores").appendChild(vidasTexto);
+
+  function actualizarVidas() {
+    vidasTexto.textContent = "Oportunidades restantes: " + oportunidades;
+  }
+
+  actualizarVidas();
+
+  function iniciarJuego() {
+    const opciones = document.getElementById("opcionesColores");
+    const resultado = document.getElementById("resultado");
+    resultado.textContent = "";
+
+    colorCorrecto = coloresJuego[Math.floor(Math.random() * coloresJuego.length)];
+    document.getElementById("colorObjetivo").textContent = colorCorrecto.nombreEn;
+
+    opciones.innerHTML = "";
+    const opcionesAleatorias = [...coloresJuego].sort(() => Math.random() - 0.5).slice(0, 6);
+
+    if (!opcionesAleatorias.includes(colorCorrecto))
+      opcionesAleatorias[0] = colorCorrecto;
+
+    opcionesAleatorias.forEach(color => {
+      const btn = document.createElement("button");
+      btn.style.background = color.codigo;
+
+      btn.onclick = () => {
+        if(color === colorCorrecto){
+          resultado.style.color = "green";
+          resultado.textContent = "✔ Correctooo!";
+          setTimeout(iniciarJuego, 1200);
+        } else {
+          oportunidades--;
+          actualizarVidas();
+          resultado.style.color = "red";
+          resultado.textContent = "✘ Incorrectooo…";
+
+          if(oportunidades <= 0){
+            resultado.textContent = "😢 Perdiste! Reiniciando...";
+            setTimeout(() => {
+              oportunidades = 3;
+              actualizarVidas();
+              iniciarJuego();
+            }, 1500);
+          }
+        }
+      };
+      opciones.appendChild(btn);
+    });
+  }
+
+  iniciarJuego();
+</script>
+
+</body>
+</html>
+

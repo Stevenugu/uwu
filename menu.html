@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Pagina principal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Edu+SA+Hand:wght@400..700&family=Fjalla+One&family=Fugaz+One&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="ranna.jpeg">
+    <link href="style.css" rel="stylesheet">
+    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <img src="images/ranna.jpeg" style="float: left; width: 150px; height: auto; margin-top: 100px;">
+    <style>
+
+
+        .single_menu_item {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .single_menu_item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px #1c418b;
+        }
+
+        .single_menu_item .dish-thumb {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .single_menu_item .dish-thumb img {
+            transition: transform 0.5s ease;
+        }
+
+        .single_menu_item:hover .dish-thumb img {
+            transform: scale(1.1);
+        }
+
+        .single_menu_item .dish-description h3 {
+            transition: color 0.3s ease;
+        }
+
+        .single_menu_item:hover .dish-description h3 {
+            color: #09b14c;
+        }
+
+        .single_menu_item .dish-description p {
+            transition: color 0.3s ease;
+        }
+
+        .single_menu_item:hover .dish-description p {
+            color: #09b14c;
+        }
+
+        /* Efecto de brillo en hover */
+        .single_menu_item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.5s ease;
+        }
+
+        .single_menu_item:hover::before {
+            left: 100%;
+        }
+
+        /* Animación suave para el contenedor */
+        .caviar-portfolio {
+            position: relative;
+        }
+
+        /* Mejora visual adicional */
+        .single_menu_item .d-sm-flex {
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        .single_menu_item:hover .d-sm-flex {
+            background: #ffffff;
+        }
+        h2 { 
+      margin: 12px;
+      font-family: Fugaz One;
+      font-size: 70px;
+        }
+        h3 { 
+      margin: 12px;
+      font-family: Edu SA Hand;
+      font-size: 70px;
+        }
+        h1 { 
+      margin: 12px;
+      font-family: Josefin Sans;
+      font-size: 70px;
+        }
+        header{
+            font-size: large;
+            
+        }
+    </style>
+</head>
+
+    <title>Iniciar sesión</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<header class="header_area" id="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg align-items-center justify-content-between">
+      
+      <!-- IZQUIERDA: Botones + Título -->
+      <div class="auth-box d-inline-flex align-items-center flex-wrap">
+        <a class="btn btn-outline-light mr-2" href="iniciar.html" role="button">Iniciar sesión</a>
+        <a class="btn btn-warning mr-3" href="registro.html" role="button">Regístrate ahora</a>
+        <h3 class="auth-title text-center mb-0">Niños Especiales</h3>
+      </div>
+
+   <!-- DERECHA: Imagen -->
+<img src="ranma4.jpg" alt="Logo" class="logo-derecha">
+
+
+
+    </nav>
+  </div>
+</header>
+
+    <div class="caviar-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="#" method="get">
+                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Favourite Dish ...">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url('mm.jpg')">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Menu Area Start ***** -->
+    <div class="caviar-food-menu section-padding-150 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                        <div class="caviar-portfolio clearfix">
+                            <!-- Single Gallery Item -->
+                            <div class="single_menu_item breakfast wow fadeInUp"> 
+                                
+                                <div class="d-sm-flex align-items-center">
+                                    <div class="dish-thumb">
+                                        <img src="img/nuevas/Imagen1.jpg" alt="">
+                                    </div>
+                                    <div class="dish-description">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Gallery Item -->
+                            <div class="single_menu_item breakfast dinner wow fadeInUp">
+                                <div class="d-sm-flex align-items-center">
+                                    <div class="dish-thumb">
+                                        <img src="img/nuevas/rogelio.png" alt="">
+                                    </div>
+                                    <div class="dish-description">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="single_menu_item lunch wow fadeInUp">
+                                <div class="d-sm-flex align-items-center">
+                                    <div class="dish-thumb">
+                                        <img src="img/nuevas/Imagen2.jpg" alt="">
+                                    </div>
+                                    <div class="dish-description">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Gallery Item -->
+                            <div class="single_menu_item lunch wow fadeInUp">
+                                <div class="d-sm-flex align-items-center">
+                                    <div class="dish-thumb">
+                                        <img src="img/nuevas/Imagen3.jpg" alt="">
+                                    </div>
+                                    <div class="dish-description">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                              <div class="single_menu_item lunch wow fadeInUp">
+                                <div class="d-sm-flex align-items-center">
+                                    <div class="dish-thumb">
+                                        <img src="img/nuevas/Imagen3.jpg" alt="">
+                                    </div>
+                                    <div class="dish-description">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Gallery Item -->
+                         <br><br><br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Menu Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="caviar-footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-text">
+                        <a href="#" class="navbar-brand">L</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p></p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/others/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</body>
+
+</html>

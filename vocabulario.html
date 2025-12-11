@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vocabulario - Aprende Inglés Fácil</title>
+
+  <link rel="icon" type="image/jpeg" href="ranna.jpeg">
+
+  <style>
+
+    body {
+
+      font-family: 'Comic Sans MS', Arial, sans-serif;
+
+      background-color: #a9d6ff;
+
+      margin: 0;
+
+      padding: 0;
+
+      color: #003366;
+
+    }
+
+    header {
+
+      background-color: #58b9ff;
+
+      color: white;
+
+      padding: 30px;
+
+      text-align: center;
+
+    }
+
+    h1 { font-size: 2.5em; margin-bottom: 10px; }
+
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila */
+  gap: 20px;
+  padding: 30px;
+  justify-items: center;
+}
+    .flip-card {
+
+      background-color: transparent;
+
+      width: 200px;
+
+      height: 300px;
+
+      perspective: 1000px;
+
+      cursor: pointer;
+
+    }
+
+    .flip-card-inner {
+
+      position: relative;
+
+      width: 100%;
+
+      height: 100%;
+
+      text-align: center;
+
+      transition: transform 0.8s;
+
+      transform-style: preserve-3d;
+
+    }
+
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+
+    .flip-card-front, .flip-card-back {
+
+      position: absolute;
+
+      width: 100%;
+
+      height: 100%;
+
+      border-radius: 15px;
+
+      border: 3px solid #007acc;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+      backface-visibility: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 10px;
+
+      background-color: #ffffff;
+
+    }
+
+    .flip-card-back { transform: rotateY(180deg); background-color: #e0f7ff; }
+
+    .flip-card img {
+
+      width: 150px;
+
+      height: 150px;
+
+      border-radius: 10px;
+
+      object-fit: cover;
+
+    }
+
+    .english-word {
+
+      font-size: 1em;
+
+      font-weight: bold;
+
+      margin-top: 8px;
+
+      color: #007acc;
+
+    }
+
+    footer { background-color: #58b9ff; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Vocabulario Básico</h1>
+
+    <p>Toca una tarjeta para ver la seña de la palabra.</p>
+
+  </header>
+
+
+
+  <section class="grid">
+
+    <!-- 🔹 EJEMPLO DE TARJETAS -->
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="manzana2.jpg" alt="manzana2">
+
+          <div class="english-word">Apple</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="aple.jpg" alt="apple">
+
+          <div class="english-word">Apple-manzana</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="perro.jpg" alt="perro">
+
+          <div class="english-word">Dog</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="dog.jpg" alt="dog">
+
+          <div class="english-word">Dog-perro</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="pelota.jpg" alt="pelota">
+
+          <div class="english-word">Ball</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="ball.jpg" alt="ball">
+
+          <div class="english-word">Ball-pelota</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="casa.jpg" alt="casa">
+
+          <div class="english-word">House</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="house.jpg" alt="house">
+
+          <div class="english-word">House-casa</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="agua.jpg" alt="agua">
+
+          <div class="english-word">water</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="water.jpg" alt="water">
+
+          <div class="english-word">water-agua</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="leche.jpg" alt="leche">
+
+          <div class="english-word">milk</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="milk.jpg" alt="milk">
+
+          <div class="english-word">milh-leche</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="ghato.jpg" alt="gato">
+
+          <div class="english-word">cat</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="cat.jpg" alt="cat">
+
+          <div class="english-word">cat-gato</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="familia.jpg" alt="familia">
+
+          <div class="english-word">family</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="family.jpg" alt="family">
+
+          <div class="english-word">family-familia</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="pez.jpg" alt="pez">
+
+          <div class="english-word">fish</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="fish.jpg" alt="fish">
+
+          <div class="english-word">fish-pez</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="sueter.jpg" alt="sueter">
+
+          <div class="english-word">sweater</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="sueter1.jpg" alt="sueter1">
+
+          <div class="english-word">sweater</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="vaso.jpg" alt="vaso">
+
+          <div class="english-word">glass</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="glass1.jpg" alt="glass1">
+
+          <div class="english-word">glass-vaso</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="mesa.jpg" alt="mesa">
+
+          <div class="english-word">table</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="table.jpg" alt="table">
+
+          <div class="english-word">table-mesa</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="jugo.jpg" alt="jugo">
+
+          <div class="english-word">juice</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="juice.jpg" alt="juice">
+
+          <div class="english-word">juice-jugo</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="mundo.jpg" alt="mundo">
+
+          <div class="english-word">word</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="word.jpg" alt="Seña House">
+
+          <div class="english-word">word-mundo</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="cuaderno.jpg" alt="cuaderno">
+
+          <div class="english-word">notebook</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="notebook.jpg" alt="notebook">
+
+          <div class="english-word">notebook-cuaderno</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="lapiz.jpg" alt="lapiz">
+
+          <div class="english-word">pencil</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="pencil.jpg" alt="pencil">
+
+          <div class="english-word">pencil-lapiz</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="libro.jpg" alt="libro">
+
+          <div class="english-word">book</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="book.jpg" alt="book">
+
+          <div class="english-word">book-libro</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="telefono.jpg" alt="telefono">
+
+          <div class="english-word">phon</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="phon.jpg" alt="phon">
+
+          <div class="english-word">phone-telefono</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="comida.jpg" alt="comida">
+
+          <div class="english-word">food</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="eat.jpg" alt="eat">
+
+          <div class="english-word">eat-comida</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="puerta.jpg" alt="puerta">
+
+          <div class="english-word">door</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="door.jpg" alt="door">
+
+          <div class="english-word">door-puerta</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="escuela1.jpg" alt="escuela">
+
+          <div class="english-word">school</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="school.jpg" alt="school">
+
+          <div class="english-word">school-escuela</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="amigos.jpg" alt="amigos">
+
+          <div class="english-word">friends</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="friend.jpg" alt="friend">
+
+          <div class="english-word">friends-amigos</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="yo.jpg" alt="yo">
+
+          <div class="english-word">I</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="i1.jpg" alt="i1">
+
+          <div class="english-word">I-yo</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="juegos.jpg" alt="juegos">
+
+          <div class="english-word">games</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="game.jpg" alt="game">
+
+          <div class="english-word">game-juego</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="lampara.jpg" alt="lampara">
+
+          <div class="english-word">lamp</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="lam1.jpg" alt="lampara1">
+
+          <div class="english-word">lamp-lampara</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="hermano.jpg" alt="hermano">
+
+          <div class="english-word">brother</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="brother.jpg" alt="brother">
+
+          <div class="english-word">brother-hermano</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="carro.jpg" alt="carro">
+
+          <div class="english-word">car</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="car.jpg" alt="car">
+
+          <div class="english-word">car-carro</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="parque.jpg" alt="parque">
+
+          <div class="english-word">park</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="school.jpg" alt="school">
+
+          <div class="english-word">sweater</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="hermana.jpg" alt="hermana">
+
+          <div class="english-word">sister</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="sister.jpg" alt="sister">
+
+          <div class="english-word">sister-hermana</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="ventana.jpg" alt="ventana">
+
+          <div class="english-word">window</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="window.jpg" alt="window">
+
+          <div class="english-word">window-ventana</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="arco.jpg" alt="arco">
+
+          <div class="english-word">rainbow</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="ra.jpg" alt="ra">
+
+          <div class="english-word">rainbow-arcoiris</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="dinero.jpg" alt="dinero">
+
+          <div class="english-word">money</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="money.jpg" alt="money">
+
+          <div class="english-word">money-dinero</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="cuerpo.jpg" alt="cuerpo">
+
+          <div class="english-word">body</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="house_sign.jpg" alt="Seña House">
+
+          <div class="english-word">sweater</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="ojos.jpg" alt="ojos">
+
+          <div class="english-word">eyes</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="eyes1.jpg" alt="eyes1">
+
+          <div class="english-word">eyes-ojos</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="boca.jpg" alt="boca">
+
+          <div class="english-word">mouth</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="boca2.jpg" alt="boca2">
+
+          <div class="english-word">mouth-boca</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="patio.jpg" alt="patio">
+
+          <div class="english-word">yard</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="yard.jpg" alt="yard">
+
+          <div class="english-word">yard-patio</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="musica.jpg" alt="musica">
+
+          <div class="english-word">music</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="music.jpg" alt="music">
+
+          <div class="english-word">music-musica</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="banana.jpg" alt="banana">
+
+          <div class="english-word">banana</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="platano1.jpg" alt="platano1">
+
+          <div class="english-word">banana-platano</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="refresco.jpg" alt="refresco">
+
+          <div class="english-word">soda</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="soda.jpg" alt="soda">
+
+          <div class="english-word">soda-refresco</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="silla.jpg" alt="silla">
+
+          <div class="english-word">chair</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="sil.jpg" alt="sil">
+
+          <div class="english-word">chair-silla</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="mono.jpg" alt="mono">
+
+          <div class="english-word">monkey</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="monky.jpg" alt="monky">
+
+          <div class="english-word">monkey-chango</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="leon.jpg" alt="leon">
+
+          <div class="english-word">lion</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="lion1.jpg" alt="lion1">
+
+          <div class="english-word">lion-leon</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="ropa.jpg" alt="ropa">
+
+          <div class="english-word">clothes</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="rop1.jpg" alt="rop1">
+
+          <div class="english-word">clothes-ropa</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="zapatos.jpg" alt="zapatos">
+
+          <div class="english-word">shoes</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="zapa.jpg" alt="zapa">
+
+          <div class="english-word">shoes-zapatos</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="porfavor.jpg" alt="porfavor">
+
+          <div class="english-word">please</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="please.jpg" alt="please">
+
+          <div class="english-word">please-porfavor</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="hola.jpg" alt="hola">
+
+          <div class="english-word">hello</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="hello.jpg" alt="hello">
+
+          <div class="english-word">hello-hola</div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+</div>
+
+
+
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front">
+
+          <img src="ayuda.jpg" alt="ayuda">
+
+          <div class="english-word">help</div>
+
+        </div>
+
+        <div class="flip-card-back">
+
+          <img src="help.jpg" alt="help">
+
+          <div class="english-word">help-ayuda</div>
+
+        </div>
+
+      </div>
+      <a href="midestino.html" class="Ir a inicio">Ir</a>
+
+
+      
+
+
+    </div>
+
+
+
+    <!-- 🔹 DUPLICA EL BLOQUE DE ARRIBA HASTA 100 TARJETAS -->
+
+  </section>
+
+  <!-- 🔥🔥 BOTÓN AÑADIDO ABAJO DE TODAS LAS TARJETAS 🔥🔥 -->
+<div class="btn-inicio">
+  <a href="index.html">🏠 Ir a inicio</a>
+</div>
+
+<style>
+  .btn-inicio {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0; /* separación del resto de contenido */
+  }
+
+  .btn-inicio a {
+    background-color: #1abc9c; /* turquesa llamativo */
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .btn-inicio a:hover {
+    background-color: #16a085; /* un turquesa más oscuro al pasar el mouse */
+    transform: scale(1.05);
+  }
+</style>
+<div class="btn-jugar">
+  <a href="juegos_voca.html">🎮 Ir a jugar</a>
+</div>
+
+<style>
+  .btn-jugar {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+
+  .btn-jugar a {
+    background-color: #1abc9c;      /* Turquesa */
+    color: white;
+    font-size: 2em;                 /* Botón grande */
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px 50px;             /* Tamaño grande */
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .btn-jugar a:hover {
+    background-color: #16a085;     /* Turquesa más oscuro */
+    transform: scale(1.08);        /* Efecto de agrandarse */
+  }
+</style>
+
+
+
+
+  <footer>
+
+    © 2025 Aprendamos Inglés con Señas | Vocabulario básico
+
+  </footer>
+
+
+
+  <script>
+
+    // No necesitas JavaScript adicional; solo el onclick en cada tarjeta
+
+  </script>
+
+</body>
+
+</html>
